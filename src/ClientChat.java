@@ -110,7 +110,7 @@ public class ClientChat extends JFrame {
             while (!msgin.equals("exit")) {
                 date = new Date();
                 msgin = din.readUTF();
-                msg_area.setText(msg_area.getText().trim() + "\n" + formatForDateNow.format(date) + " Server:" + msgin);
+                msg_area.setText(msg_area.getText().trim() + "\n" + formatForDateNow.format(date) + " Server: " + msgin);
             }
         } catch (Exception e) {
 
