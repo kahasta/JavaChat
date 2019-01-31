@@ -21,7 +21,7 @@ public class ServerChat extends JFrame {
     static DataInputStream din;
     static DataOutputStream dout;
     static Date date;
-    static SimpleDateFormat formatForDateNow = new SimpleDateFormat("hh:mm:ss");
+    static SimpleDateFormat formatForDateNow = new SimpleDateFormat("HH:mm:ss");
 
 
     private static void initComp(JFrame frame) {
