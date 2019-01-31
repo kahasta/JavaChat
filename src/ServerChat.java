@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
@@ -44,10 +46,20 @@ public class ServerChat extends JFrame {
             }
         });
 
-        msg_text.addActionListener(new ActionListener() {
+        msg_text.addKeyListener(new KeyListener() {
             @Override
-            public void actionPerformed(ActionEvent event) {
-                msg_textActionPerformed(event);
+            public void keyTyped(KeyEvent keyEvent) {
+                msg_textActionPerformed(keyEvent);
+            }
+
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+
             }
         });
 
@@ -61,8 +73,7 @@ public class ServerChat extends JFrame {
         frame.setVisible(true);
     }
 
-    private static void msg_sendActionPerformed(ActionEvent event) {
-        //TODO
+    private static void sendMsg() {
         try {
 
             String msgout = "";
@@ -77,9 +88,16 @@ public class ServerChat extends JFrame {
         }
     }
 
-    private static void msg_textActionPerformed(ActionEvent event) {
+    private static void msg_sendActionPerformed(ActionEvent event) {
         //TODO
+        sendMsg();
+    }
 
+    private static void msg_textActionPerformed(KeyEvent event) {
+        //TODO
+        if (event.getKeyChar() == '\n') {
+            sendMsg();
+        }
     }
 
     private static void serverConnect() {
